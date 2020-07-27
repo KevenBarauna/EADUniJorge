@@ -8,6 +8,12 @@ var Cor01 = const Color(0xffdedede);
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    load() async {
+      await Future.delayed(Duration(seconds: 3));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Info()));
+    }
+
+    load();
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
@@ -33,19 +39,6 @@ class Home extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
-              child: FloatingActionButton(
-                onPressed: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => Info()));
-                },
-                tooltip: 'Incremente',
-                child: Icon(
-                  Icons.assignment_turned_in,
-                  color: Colors.white,
-                ),
-              ),
-            )
           ],
         ),
       ),
